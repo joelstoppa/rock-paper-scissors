@@ -21,16 +21,32 @@
                 return 'scissors'
             }
         }
+
         const computerSelection = getComputerChoice()
         const playerSelection = prompt('Rock, paper or scissors?').toLowerCase()
 
-        console.log(playerSelection)
-
+        const ps = playerSelection
+        const cs = computerSelection
+        
         function playRound(playerSelection, computerSelection) {
+            
+            
+            if ((ps === 'rock' && cs === 'scissors') || (ps === 'paper' && cs === 'rock') || (ps === 'scissors' && cs === 'paper')) {
+                
+                return `You win! ${ps} beats ${cs}!`
+            }
+            else if (ps === cs) {
+                return `It's a tie! You chose ${ps} and computer chose ${cs}`
+            }
+            else {
+                return `Computer wins! ${cs} beats ${ps}!`
+            }
+            
+            
+            }
 
-
-        }
-         
+        console.log(ps)
+        console.log(playRound(playerSelection, computerSelection))
         
         //console.log(getComputerChoice())
     </script>
