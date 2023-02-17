@@ -24,26 +24,36 @@ function playRound(playerSelection) {
     
     if ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')) {
         
-        console.log('win')
-        return { result: win, outcome: 'win' };
+        console.log('win');
+        let result = { result: win, outcome: 'win' };
+        return result;
     }
     else if (playerSelection === computerSelection) {
         
-        console.log('tie')
-        return { result: tie, outcome: 'tie' };
+        console.log('tie');
+        let result = { result: tie, outcome: 'tie' };
+        return result;
+
     }
     else {
         
-        console.log('lose')
-        return {result: lose, outcome: 'lose' };
+        console.log('lose');
+        let result = {result: lose, outcome: 'lose' };
+        return result;
+
     }
     
     
     
     }
+
+const resultDiv = document.getElementById('results');
+
 const buttons = document.querySelectorAll('button');
+
 buttons.forEach(button => button.addEventListener('click', () => {
-    playRound(button.id)
+    let result = playRound(button.id);
+    resultDiv.textContent = result.result
 }));
 
 
